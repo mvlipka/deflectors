@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		6A8AAB201EE0B30200303F46 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A8AAB1F1EE0B30200303F46 /* main.cpp */; };
+		6A8AAB281EE0B35900303F46 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8AAB271EE0B35900303F46 /* SDL2.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		6A8AAB311EE1BDB100303F46 /* laser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A8AAB301EE1BDB100303F46 /* laser.cpp */; };
+		6A8AAB371EE1CBAD00303F46 /* grid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A8AAB351EE1CBAD00303F46 /* grid.cpp */; };
+		6A8AAB3B1EE1DFB400303F46 /* grid.h in Sources */ = {isa = PBXBuildFile; fileRef = 6A8AAB381EE1CBBD00303F46 /* grid.h */; };
+		6A8AAB3C1EE1DFB900303F46 /* laser.h in Sources */ = {isa = PBXBuildFile; fileRef = 6A8AAB331EE1BDE300303F46 /* laser.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +30,13 @@
 /* Begin PBXFileReference section */
 		6A8AAB1C1EE0B30200303F46 /* deflections */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = deflections; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A8AAB1F1EE0B30200303F46 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		6A8AAB271EE0B35900303F46 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		6A8AAB301EE1BDB100303F46 /* laser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = laser.cpp; path = deflections/source/laser.cpp; sourceTree = "<group>"; };
+		6A8AAB331EE1BDE300303F46 /* laser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = laser.h; path = deflections/header/laser.h; sourceTree = "<group>"; };
+		6A8AAB351EE1CBAD00303F46 /* grid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = grid.cpp; path = deflections/source/grid.cpp; sourceTree = "<group>"; };
+		6A8AAB381EE1CBBD00303F46 /* grid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = grid.h; sourceTree = "<group>"; };
+		6A8AAB391EE1CEFC00303F46 /* samples */ = {isa = PBXFileReference; lastKnownFileType = folder; name = samples; path = deflections/samples; sourceTree = "<group>"; };
+		6A8AAB3A1EE1CF1300303F46 /* samples */ = {isa = PBXFileReference; lastKnownFileType = folder; name = samples; path = deflections/samples; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A8AAB281EE0B35900303F46 /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,8 +54,12 @@
 		6A8AAB131EE0B30200303F46 = {
 			isa = PBXGroup;
 			children = (
+				6A8AAB3A1EE1CF1300303F46 /* samples */,
+				6A8AAB321EE1BDC200303F46 /* header */,
+				6A8AAB2F1EE1BD8500303F46 /* source */,
 				6A8AAB1E1EE0B30200303F46 /* deflections */,
 				6A8AAB1D1EE0B30200303F46 /* Products */,
+				6A8AAB261EE0B35900303F46 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +77,33 @@
 				6A8AAB1F1EE0B30200303F46 /* main.cpp */,
 			);
 			path = deflections;
+			sourceTree = "<group>";
+		};
+		6A8AAB261EE0B35900303F46 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A8AAB391EE1CEFC00303F46 /* samples */,
+				6A8AAB271EE0B35900303F46 /* SDL2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6A8AAB2F1EE1BD8500303F46 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				6A8AAB301EE1BDB100303F46 /* laser.cpp */,
+				6A8AAB351EE1CBAD00303F46 /* grid.cpp */,
+			);
+			name = source;
+			sourceTree = "<group>";
+		};
+		6A8AAB321EE1BDC200303F46 /* header */ = {
+			isa = PBXGroup;
+			children = (
+				6A8AAB331EE1BDE300303F46 /* laser.h */,
+				6A8AAB381EE1CBBD00303F46 /* grid.h */,
+			);
+			name = header;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +164,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A8AAB201EE0B30200303F46 /* main.cpp in Sources */,
+				6A8AAB311EE1BDB100303F46 /* laser.cpp in Sources */,
+				6A8AAB3C1EE1DFB900303F46 /* laser.h in Sources */,
+				6A8AAB3B1EE1DFB400303F46 /* grid.h in Sources */,
+				6A8AAB371EE1CBAD00303F46 /* grid.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,14 +266,30 @@
 		6A8AAB241EE0B30200303F46 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				HEADER_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
 		6A8AAB251EE0B30200303F46 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				HEADER_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
@@ -248,6 +312,7 @@
 				6A8AAB251EE0B30200303F46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
