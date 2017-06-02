@@ -9,15 +9,30 @@
 #ifndef grid_h
 #define grid_h
 
+#include <vector>
+
+// Spaces between tile centers
+const int GRID_SPACING = 50;
+
+enum DeflectorDirection {
+    Back,
+    Forward
+};
+
 class Tile {
 public:
     bool hasDeflector;
+    DeflectorDirection direction;
+    bool isTarget;
+    
 };
 
 class Grid {
 public:
-    Tile** Contents;
+    std::vector<std::vector<Tile>> Contents;
     Grid(int rows, int columns);
+    
+    int rowLength, columnLength;
 };
 
 #endif /* grid_h */
