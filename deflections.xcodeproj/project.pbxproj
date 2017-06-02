@@ -11,7 +11,6 @@
 		6A8AAB281EE0B35900303F46 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8AAB271EE0B35900303F46 /* SDL2.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		6A8AAB311EE1BDB100303F46 /* laser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A8AAB301EE1BDB100303F46 /* laser.cpp */; };
 		6A8AAB371EE1CBAD00303F46 /* grid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A8AAB351EE1CBAD00303F46 /* grid.cpp */; };
-		6A8AAB3B1EE1DFB400303F46 /* grid.h in Sources */ = {isa = PBXBuildFile; fileRef = 6A8AAB381EE1CBBD00303F46 /* grid.h */; };
 		6A8AAB3C1EE1DFB900303F46 /* laser.h in Sources */ = {isa = PBXBuildFile; fileRef = 6A8AAB331EE1BDE300303F46 /* laser.h */; };
 /* End PBXBuildFile section */
 
@@ -34,9 +33,9 @@
 		6A8AAB301EE1BDB100303F46 /* laser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = laser.cpp; path = deflections/source/laser.cpp; sourceTree = "<group>"; };
 		6A8AAB331EE1BDE300303F46 /* laser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = laser.h; path = deflections/header/laser.h; sourceTree = "<group>"; };
 		6A8AAB351EE1CBAD00303F46 /* grid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = grid.cpp; path = deflections/source/grid.cpp; sourceTree = "<group>"; };
-		6A8AAB381EE1CBBD00303F46 /* grid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = grid.h; sourceTree = "<group>"; };
 		6A8AAB391EE1CEFC00303F46 /* samples */ = {isa = PBXFileReference; lastKnownFileType = folder; name = samples; path = deflections/samples; sourceTree = "<group>"; };
 		6A8AAB3A1EE1CF1300303F46 /* samples */ = {isa = PBXFileReference; lastKnownFileType = folder; name = samples; path = deflections/samples; sourceTree = "<group>"; };
+		6AD1CCC01EE1E94D00FC7ADF /* grid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = grid.h; path = deflections/header/grid.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				6A8AAB331EE1BDE300303F46 /* laser.h */,
-				6A8AAB381EE1CBBD00303F46 /* grid.h */,
+				6AD1CCC01EE1E94D00FC7ADF /* grid.h */,
 			);
 			name = header;
 			sourceTree = "<group>";
@@ -166,7 +165,6 @@
 				6A8AAB201EE0B30200303F46 /* main.cpp in Sources */,
 				6A8AAB311EE1BDB100303F46 /* laser.cpp in Sources */,
 				6A8AAB3C1EE1DFB900303F46 /* laser.h in Sources */,
-				6A8AAB3B1EE1DFB400303F46 /* grid.h in Sources */,
 				6A8AAB371EE1CBAD00303F46 /* grid.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

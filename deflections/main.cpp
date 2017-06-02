@@ -129,12 +129,13 @@ void replace(std::string& str, const std::string& from, const std::string& to) {
 void loadFile() {
     std::ifstream file("deflections/samples/01.txt");
     std::string line;
-    int lineNum = 1;
+    int lineNum = 0;
     if(file.is_open()) {
         // Iterate through lines, skipping first 2
         while(std::getline(file, line)) {
+            lineNum++;
+            
             if(lineNum <= 2) {
-                lineNum++;
                 continue;
             }
             
@@ -150,12 +151,22 @@ void loadFile() {
             if(lineNum == 3) {
                 // Grid
                 grid = new Grid(x, y);
+                continue;
                 
             } else if(lineNum == 4) {
                 // Target Position
+                grid->SetTarget(x, y);
+                continue;
             }
             
-            lineNum++;
+            DeflectorDirection direction;
+            if(tokens[2] == "/") {
+                direction = DeflectorDirection::Forward;
+            } else {
+                direction = DeflectorDirection::Back;
+            }
+            
+            grid->PlaceDeflector(x, y, direction);
         }
     } else {
         printf("Could not open file");

@@ -13,9 +13,22 @@ Grid::Grid(int rows, int columns) {
     this->columnLength = columns;
     
     for(int x = 0; x < rows; x++) {
-        Tile tile = Tile();
+        std::vector<Tile> col;
+        this->Contents.push_back(col);
         for (int y = 0; y < columns; y++) {
-            tile = Tile();
+            Tile tile = Tile();
+            this->Contents[x].push_back(tile);
         }
     }
+}
+
+void Grid::SetTarget(int x, int y) {
+    this->Contents[x][y].isTarget = true;
+}
+
+void Grid::PlaceDeflector(int x, int y, DeflectorDirection direction) {
+    x--;
+    y--;
+    this->Contents[x][y].hasDeflector = true;
+    this->Contents[x][y].direction = direction;
 }

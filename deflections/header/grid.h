@@ -31,6 +31,8 @@ class Grid {
 public:
     std::vector<std::vector<Tile>> Contents;
     Grid(int rows, int columns);
+    void SetTarget(int x, int y);
+    void PlaceDeflector(int x, int y, DeflectorDirection direction);
     
     int rowLength, columnLength;
 };
