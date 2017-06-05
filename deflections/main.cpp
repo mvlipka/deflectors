@@ -83,6 +83,8 @@ void render() {
     SDL_UpdateWindowSurface(window);
     SDL_RenderClear(renderer);
     
+    grid->render(renderer);
+    
     for(std::vector<Laser*>::iterator it = lasers.begin(); it != lasers.end(); ++it){
         (*it)->render();
     }

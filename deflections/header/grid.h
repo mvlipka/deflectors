@@ -10,9 +10,10 @@
 #define grid_h
 
 #include <vector>
+#include "SDL2/SDL.h"
 
 // Spaces between tile centers
-const int GRID_SPACING = 50;
+const int GRID_SPACING = 25;
 
 enum DeflectorDirection {
     Back,
@@ -24,7 +25,7 @@ public:
     bool hasDeflector;
     DeflectorDirection direction;
     bool isTarget;
-    
+    void render(SDL_Renderer * renderer, int x, int y);
 };
 
 class Grid {
@@ -34,7 +35,13 @@ public:
     void SetTarget(int x, int y);
     void PlaceDeflector(int x, int y, DeflectorDirection direction);
     
+    void render(SDL_Renderer *renderer);
+    
     int rowLength, columnLength;
+    
+private:
+    std::vector<SDL_Point> points;
+    void createPoints();
 };
 
 #endif /* grid_h */
