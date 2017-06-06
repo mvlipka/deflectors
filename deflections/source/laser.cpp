@@ -12,8 +12,11 @@ Laser::Laser(SDL_Renderer* renderer, int x, int y, Direction direction) {
     this->stepping = true;
 }
 void Laser::render() {
+	SDL_SetRenderDrawColor(this->renderer, 0, 255, 0, 255);
+	SDL_RenderSetScale(renderer, 1, 3);
     SDL_RenderDrawLine(this->renderer, startX, startY, x, y);
-    std::cout << startX << "," << startY << ":" << x << "," << y << "\n";
+	SDL_RenderSetScale(renderer, 1, 1);
+	SDL_SetRenderDrawColor(this->renderer, 0, 0, 0, 255);
 }
 
 void Laser::step() {

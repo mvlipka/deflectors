@@ -7,7 +7,13 @@
 //
 
 #include "header/laser.h"
+
+#ifdef _WIN64
+#include <SDL.h>
+#undef main
+#else
 #include <SDL2/SDL.h>
+#endif
 #include <iostream>
 #include <vector>
 #include <iostream>
@@ -65,7 +71,7 @@ int main(int argc, const char *argv[]) {
     }
     
     running = true;
-    lasers.push_back(new Laser(renderer, 0, 0, Direction::E));
+    lasers.push_back(new Laser(renderer, 0, 50, Direction::E));
     while (running) {
         events();
         logic();
@@ -157,7 +163,7 @@ void loadFile() {
                 
             } else if(lineNum == 4) {
                 // Target Position
-                grid->SetTarget(x, y);
+                grid->SetTarget(x-1, y-1);
                 continue;
             }
             

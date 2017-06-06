@@ -10,7 +10,12 @@
 #define grid_h
 
 #include <vector>
+
+#ifdef _WIN64
+#include "SDL.h"
+#else
 #include "SDL2/SDL.h"
+#endif
 
 // Spaces between tile centers
 const int GRID_SPACING = 25;
@@ -25,6 +30,7 @@ public:
     bool hasDeflector;
     DeflectorDirection direction;
     bool isTarget;
+	SDL_Rect getRect();
     void render(SDL_Renderer * renderer, int x, int y);
 };
 

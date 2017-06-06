@@ -9,8 +9,11 @@
 #ifndef laser_h
 #define laser_h
 
+#ifdef _WIN64
+#include <SDL.h>
+#else
 #include <SDL2/SDL.h>
-
+#endif
 enum Direction {
     N = 1,
     E = 1,
