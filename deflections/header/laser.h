@@ -14,6 +14,11 @@
 #else
 #include <SDL2/SDL.h>
 #endif
+
+#include <vector>
+
+class Tile;
+
 enum Direction {
     N = 1,
     E = 1,
@@ -27,6 +32,9 @@ public:
     ~Laser();
     void render();
     void step();
+    bool CheckCollisions(std::vector<Tile*> tiles);
+    
+    
     Direction direction;
     
     int startX, startY;

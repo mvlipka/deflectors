@@ -27,19 +27,31 @@ enum DeflectorDirection {
 
 class Tile {
 public:
+    Tile(int x, int y);
     bool hasDeflector;
     DeflectorDirection direction;
     bool isTarget;
-	SDL_Rect getRect();
+    
     void render(SDL_Renderer * renderer, int x, int y);
+    float CenterX();
+    float CenterY();
+    int Left();
+    int Right();
+    int Top();
+    int Bottom();
+    
+private:
+    int x, y;
 };
 
 class Grid {
 public:
     std::vector<std::vector<Tile>> Contents;
+    std::vector<Tile*> DeflectorTiles;
     Grid(int rows, int columns);
     void SetTarget(int x, int y);
     void PlaceDeflector(int x, int y, DeflectorDirection direction);
+    Tile* GetTarget();
     
     void render(SDL_Renderer *renderer);
     
@@ -48,6 +60,8 @@ public:
 private:
     std::vector<SDL_Point> points;
     void createPoints();
+    int targetX, targetY;
+    Tile* target;
 };
 
 #endif /* grid_h */

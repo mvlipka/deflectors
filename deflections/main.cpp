@@ -71,7 +71,9 @@ int main(int argc, const char *argv[]) {
     }
     
     running = true;
-    lasers.push_back(new Laser(renderer, 0, 50, Direction::E));
+    
+    // Create starting lasers
+    lasers.push_back(new Laser(renderer, grid->GetTarget()->Right(), grid->GetTarget()->CenterY(), Direction::E));
     while (running) {
         events();
         logic();
@@ -96,7 +98,7 @@ void render() {
     }
     
     SDL_RenderPresent(renderer);
-    SDL_Delay(20);
+    SDL_Delay(200);
 }
 
 void events() {
@@ -111,6 +113,7 @@ void events() {
 void logic() {
     for(std::vector<Laser*>::iterator it = lasers.begin(); it != lasers.end(); ++it){
         (*it)->step();
+        (*it)->CheckCollisions(grid->DeflectorTiles);
     }
 }
 
