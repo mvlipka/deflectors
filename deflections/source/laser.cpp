@@ -34,10 +34,13 @@ void Laser::step() {
 void createChildLaser(Laser *parent, Tile *tile) {
   switch (tile->direction) {
   case Forward:
-    if (parent->direction == Direction::N) {
-    }
     break;
   case Back:
+    if (parent->direction == Direction::E) {
+      Laser *childLaser = new Laser(parent->getRenderer(), tile->CenterX(),
+                                    tile->Bottom(), Direction::S);
+      lasers->push_back(childLaser);
+    }
     break;
   }
 }
@@ -46,8 +49,6 @@ bool Laser::CheckCollisions(std::vector<Tile *> tiles) {
   for (std::vector<Tile *>::iterator it = tiles.begin(); it != tiles.end();
        ++it) {
     Tile tile = *(*it);
-    std::cout << this->x << ":" << this->y << "\n";
-    std::cout << tile.Left() << ":" << tile.Top() << "\n";
     if (this->x <= tile.Right() && this->x >= tile.Left()) {
       if (this->y <= tile.Bottom() && this->y >= tile.Top()) {
         this->stepping = false;
@@ -58,5 +59,7 @@ bool Laser::CheckCollisions(std::vector<Tile *> tiles) {
   }
   return false;
 }
+
+SDL_Renderer *Laser::getRenderer() { return this->renderer; }
 
 Laser::~Laser() { delete this; }

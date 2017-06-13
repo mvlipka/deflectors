@@ -30,7 +30,7 @@ SDL_Surface *screenSurface = NULL;
 SDL_Renderer *renderer = NULL;
 bool running = false;
 
-std::vector<Laser *> lasers;
+std::vector<Laser *> *lasers = new std::vector<Laser *>();
 
 Grid *grid;
 
@@ -72,8 +72,8 @@ int main(int argc, const char *argv[]) {
   running = true;
 
   // Create starting lasers
-  lasers.push_back(new Laser(renderer, grid->GetTarget()->Right(),
-                             grid->GetTarget()->CenterY(), Direction::E));
+  lasers->push_back(new Laser(renderer, grid->GetTarget()->Right(),
+                              grid->GetTarget()->CenterY(), Direction::E));
   while (running) {
     events();
     logic();
@@ -93,7 +93,7 @@ void render() {
 
   grid->render(renderer);
 
-  for (std::vector<Laser *>::iterator it = lasers.begin(); it != lasers.end();
+  for (std::vector<Laser *>::iterator it = lasers->begin(); it != lasers->end();
        ++it) {
     (*it)->render();
   }
@@ -112,7 +112,7 @@ void events() {
 }
 
 void logic() {
-  for (std::vector<Laser *>::iterator it = lasers.begin(); it != lasers.end();
+  for (std::vector<Laser *>::iterator it = lasers->begin(); it != lasers->end();
        ++it) {
     (*it)->step();
     (*it)->CheckCollisions(grid->DeflectorTiles);

@@ -28,6 +28,7 @@ public:
   void render();
   void step();
   bool CheckCollisions(std::vector<Tile *> tiles);
+  SDL_Renderer *getRenderer();
 
   Direction direction;
 
@@ -41,5 +42,7 @@ public:
 private:
   SDL_Renderer *renderer;
 };
+
+extern std::vector<Laser *> *lasers;
 
 #endif /* laser_h */
