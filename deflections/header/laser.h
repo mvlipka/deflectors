@@ -19,33 +19,27 @@
 
 class Tile;
 
-enum Direction {
-    N = 1,
-    E = 1,
-    S = -1,
-    W = -1
-};
+enum Direction { N = 1, E = 1, S = -1, W = -1 };
 
 class Laser {
 public:
-    Laser(SDL_Renderer* renderer, int x, int y, Direction direction);
-    ~Laser();
-    void render();
-    void step();
-    bool CheckCollisions(std::vector<Tile*> tiles);
-    
-    
-    Direction direction;
-    
-    int startX, startY;
-    int x, y;
-    
-    bool stepping;
-    
-    int speed;
-    
+  Laser(SDL_Renderer *renderer, int x, int y, Direction direction);
+  ~Laser();
+  void render();
+  void step();
+  bool CheckCollisions(std::vector<Tile *> tiles);
+
+  Direction direction;
+
+  int startX, startY;
+  int x, y;
+
+  bool stepping;
+
+  int speed;
+
 private:
-    SDL_Renderer *renderer;
+  SDL_Renderer *renderer;
 };
 
 #endif /* laser_h */
