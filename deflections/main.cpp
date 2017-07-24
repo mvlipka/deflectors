@@ -76,10 +76,6 @@ int main(int argc, const char *argv[]) {
   lasers.push_back(new Laser(renderer, grid->GetTarget()->Left(),
                              grid->GetTarget()->CenterY(), Direction::W));
 
-  std::cout << grid->GetTarget()->Left() << grid->GetTarget()->Top()
-            << std::endl
-            << Direction::N;
-
   // Create starting lasers North/South
   lasers.push_back(new Laser(renderer, grid->GetTarget()->Left(),
                              grid->GetTarget()->Top(), Direction::N));
