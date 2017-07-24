@@ -22,6 +22,8 @@ Grid::Grid(int rows, int columns) {
 }
 
 void Grid::SetTarget(int x, int y) {
+  x--;
+  y--;
   this->target = &this->Contents[x][y];
   this->Contents[x][y].isTarget = true;
   this->targetY = y;

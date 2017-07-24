@@ -30,7 +30,7 @@ SDL_Surface *screenSurface = NULL;
 SDL_Renderer *renderer = NULL;
 bool running = false;
 
-std::vector<Laser *> *lasers = new std::vector<Laser *>();
+std::vector<Laser *> lasers;
 
 Grid *grid;
 
@@ -40,7 +40,6 @@ void loadFile();
 void logic();
 
 int main(int argc, const char *argv[]) {
-
   loadFile();
 
   if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -71,9 +70,21 @@ int main(int argc, const char *argv[]) {
 
   running = true;
 
-  // Create starting lasers
-  lasers->push_back(new Laser(renderer, grid->GetTarget()->Right(),
-                              grid->GetTarget()->CenterY(), Direction::E));
+  // Create starting lasers East/West
+  lasers.push_back(new Laser(renderer, grid->GetTarget()->Right(),
+                             grid->GetTarget()->CenterY(), Direction::E));
+  lasers.push_back(new Laser(renderer, grid->GetTarget()->Left(),
+                             grid->GetTarget()->CenterY(), Direction::W));
+
+  std::cout << grid->GetTarget()->Left() << grid->GetTarget()->Top()
+            << std::endl
+            << Direction::N;
+
+  // Create starting lasers North/South
+  lasers.push_back(new Laser(renderer, grid->GetTarget()->Left(),
+                             grid->GetTarget()->Top(), Direction::N));
+  lasers.push_back(new Laser(renderer, grid->GetTarget()->Left(),
+                             grid->GetTarget()->Bottom(), Direction::S));
   while (running) {
     events();
     logic();
@@ -93,9 +104,8 @@ void render() {
 
   grid->render(renderer);
 
-  for (std::vector<Laser *>::iterator it = lasers->begin(); it != lasers->end();
-       ++it) {
-    (*it)->render();
+  for (int i = 0; i < lasers.size(); i++) {
+    lasers[i]->render();
   }
 
   SDL_RenderPresent(renderer);
@@ -112,10 +122,9 @@ void events() {
 }
 
 void logic() {
-  for (std::vector<Laser *>::iterator it = lasers->begin(); it != lasers->end();
-       ++it) {
-    (*it)->step();
-    (*it)->CheckCollisions(grid->DeflectorTiles);
+  for (int i = 0; i < lasers.size(); i++) {
+    lasers[i]->step(grid);
+    lasers[i]->CheckCollisions(grid->DeflectorTiles);
   }
 }
 
@@ -168,7 +177,8 @@ void loadFile() {
 
       } else if (lineNum == 4) {
         // Target Position
-        grid->SetTarget(x - 1, y - 1);
+        std::cout << x << y << std::endl;
+        grid->SetTarget(x, y);
         continue;
       }
 

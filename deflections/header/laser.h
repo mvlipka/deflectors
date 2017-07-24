@@ -19,14 +19,16 @@
 
 class Tile;
 
-enum Direction { N = 1, E = 1, S = -1, W = -1 };
+class Grid;
+
+enum Direction { N = 1, E = 2, S = 3, W = 4 };
 
 class Laser {
 public:
   Laser(SDL_Renderer *renderer, int x, int y, Direction direction);
   ~Laser();
   void render();
-  void step();
+  void step(Grid *grid);
   bool CheckCollisions(std::vector<Tile *> tiles);
   SDL_Renderer *getRenderer();
 
@@ -43,6 +45,6 @@ private:
   SDL_Renderer *renderer;
 };
 
-extern std::vector<Laser *> *lasers;
+extern std::vector<Laser *> lasers;
 
 #endif /* laser_h */
