@@ -173,7 +173,6 @@ void loadFile() {
 
       } else if (lineNum == 4) {
         // Target Position
-        std::cout << x << y << std::endl;
         grid->SetTarget(x, y);
         continue;
       }
